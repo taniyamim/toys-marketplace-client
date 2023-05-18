@@ -4,7 +4,7 @@ import Footer from "../Shared/Footer/Footer";
 
 const Main = () => {
     return (
-        <div>
+        <div className="container">
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

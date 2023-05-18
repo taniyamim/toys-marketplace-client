@@ -1,26 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from '../../assets/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Header = () => {
 
-    // const {user, logOut} = useContext(AuthContext);
-    // const handleLogOut = () => {
-    //     logOut()
-    //     .then(() =>{
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
 
-    //     })
-    //     .catch( error => console.log(error))
-    // }
-    //     const navItems = <>
-    //     <li><Link to="/">Home</Link> </li>
-    //     <li> <Link to="/about">About</Link> </li>
-    //     { user?.email ?  <>
-    //         <li><Link to="/bookings">My Bookings</Link></li>
-    //         <li><button onClick={handleLogOut}>Log out</button></li>
-    //     </> 
-    //     : <li> <Link to="/login">Login</Link> </li>
-    //    }
-    // </>
+            })
+            .catch(error => console.log(error))
+    }
+
     return (
         <div className="navbar  bg-[#9388A2] text-primary-content h-28 mb-4">
             <div className="navbar-start">
@@ -42,18 +35,28 @@ const Header = () => {
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link> </li>
                     <li> <Link to="/alToys">All Toys</Link> </li>
-                    <li> <Link to="/myToys">My Toys</Link> </li>
-                    <li> <Link to="/addAToy">Add A Toy</Link> </li>
                     <li> <Link to="/blogs">Blogs</Link> </li>
+                    {user?.email ? <>
+                        <li> <Link to="/myToys">My Toys</Link> </li>
+                        <li> <Link to="/addAToy">Add A Toy</Link> </li>
+                        <li><button onClick={handleLogOut}>Log out</button></li>
+                    </>
+                        : <li> <Link to="/login">Login</Link> </li>
+                    }
+
+
                 </ul>
             </div>
             <div className="navbar-end ">
-                <div className="w-10 rounded-full">
-                    <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </div>
-
+                {
+                    user && 
+                    <div className="rounded-full tooltip tooltip-left" data-tip={user.displayName}>
+                        <img  src={user.photoURL} className='rounded-full w-10' alt="toys" />
+                    </div>
+                }
 
             </div>
+
         </div>
     );
 };
