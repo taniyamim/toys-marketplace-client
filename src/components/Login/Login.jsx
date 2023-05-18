@@ -64,7 +64,7 @@ const Login = () => {
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="w-1/3 mr-12">
-                    <img src={logo} alt="" className="rounded-lg" />
+                    {/* <img src={logo} alt="" className="rounded-lg" /> */}
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
@@ -89,7 +89,7 @@ const Login = () => {
                                 <input className="btn bg-[#341948]" type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>Don't have an account? <Link className='text-violet-400 font-bold' to="/signup">Sign Up</Link> </p>
+                        <p className='my-4 text-center'>Don't have an account? <Link className='text-violet-400 font-bold' to="/register">Sign Up</Link> </p>
                         <div className="divider">OR</div>
                         <button onClick={handleGoogleSignIn} className="btn gap-2 bg-violet-400 text-white">
                             Sign In With Google
