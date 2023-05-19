@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const ToysDetails = () => {
+    const { user } = useContext(AuthContext);
     const toy = useLoaderData();
     console.log(toy);
+    if (!user) {
+        useEffect(() => {
+            if (!user) {
+                toast.error('You have to log in first to view details', {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }
+        }, [user]);
+    }
     return (
         <div>
             <div className="mx-auto card w-96 bg-base-100 shadow-xl">

@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
+    const toys = useLoaderData();
+    console.log(toys);
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -18,36 +22,22 @@ const AllToys = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
-                        <tr className='hover'>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Captain America red action</td>
-                            <td>Captain America</td>
-                            <td>13$</td>
-                            <td>23</td>
-                            <td><button className="btn btn-primary">View Details</button></td>
-                        </tr>
-                        {/* row 2 */}
-                        <tr className='hover'>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Captain America red action</td>
-                            <td>Captain America</td>
-                            <td>13$</td>
-                            <td>23</td>
-                            <td><button className="btn btn-primary">View Details</button></td>
-                        </tr>
-                        {/* row 3 */}
-                        <tr className='hover'>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Captain America red action</td>
-                            <td>Captain America</td>
-                            <td>13$</td>
-                            <td>23</td>
-                            <td><button className="btn btn-primary">View Details</button></td>
-                        </tr>
+                        {/* Generate table rows dynamically */}
+                        {toys.map((toy, index) => (
+                            <tr key={index} className="hover">
+                                <th>{index + 1}</th>
+                                <td>{toy.seller}</td>
+                                <td>{toy.toyName}</td>
+                                <td>{toy.category.subcategory.subcategoryName}</td>
+                                <td>{toy.price}</td>
+                                <td>{toy.availableQuantity}</td>
+                                <td>
+                                <Link to={`/toyDetails/${toy._id}`}>
+                                <button className="btn btn-primary">View Details</button>
+                                </Link>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
