@@ -13,6 +13,7 @@ import Register from './components/Register/Register';
 import Error from './components/Error/Error';
 import AuthProvider from './Providers/AuthProvider';
 import AllToys from './components/AllToys/AllToys';
+import ToysDetails from './components/ToysDetails/ToysDetails';
 
 
 const router = createBrowserRouter([
@@ -44,11 +45,11 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
-      // {
-      //   path: "/toys/:id",
-      //   element: <PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>,
-      //   loader: ({ params }) => fetch(`https://chefs-hunter-server-taniyamim.vercel.app/chefs/${params.id}`),
-      // },
+      {
+        path: "/toyDetails/:id",
+        element: <ToysDetails></ToysDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`),
+      },
       
     ]
   },

@@ -7,7 +7,7 @@ const ShopByCategory = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch('toys.json')
+        fetch('http://localhost:5000/toys')
             .then(res => res.json())
             .then(data => setToys(data));
     }, []);
@@ -24,7 +24,7 @@ const ShopByCategory = () => {
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filteredToys.map(toy => (
-                    <div key={toy.toyId} className="card bg-base-100 shadow-xl">
+                    <div key={toy._id} className="card bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={toy.picture} alt={toy.toyName} className="rounded-xl" />
                         </figure>
@@ -34,7 +34,7 @@ const ShopByCategory = () => {
                             <p>Rating: {toy.rating}</p>
                             <p>Subcategory: {toy.category.subcategory.subcategoryName}</p>
                             <div className="card-actions">
-                                <Link to={`/toys/${toy.toyId}`}>
+                                <Link to={`/toyDetails/${toy._id}`}>
                                 <button className="btn btn-primary">View Details</button>
                                 </Link>
                                 
