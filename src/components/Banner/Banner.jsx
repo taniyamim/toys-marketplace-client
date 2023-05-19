@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='h-1/3'>
+        <div className='h-1/4'>
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full">
                     <img src="https://cdn.marvel.com/u/prod/marvel/images/OpenGraph-TW-1200x630.jpg" className="w-full" />
