@@ -34,7 +34,7 @@ const Header = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li><Link to="/">Home</Link> </li>
-                    <li> <Link to="/alToys">All Toys</Link> </li>
+                    <li> <Link to="/allToys">All Toys</Link> </li>
                     <li> <Link to="/blogs">Blogs</Link> </li>
                     {user?.email ? <>
                         <li> <Link to="/myToys">My Toys</Link> </li>

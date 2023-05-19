@@ -12,6 +12,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Error from './components/Error/Error';
 import AuthProvider from './Providers/AuthProvider';
+import AllToys from './components/AllToys/AllToys';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/allToys",
+        element: <AllToys></AllToys>,
+      },
+      {
+        path: "/addAToy",
+        element: <AllToys></AllToys>,
       },
       {
         path: "/blog",
@@ -35,6 +44,11 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
+      // {
+      //   path: "/toys/:id",
+      //   element: <PrivateRoute><ChefsRecipe></ChefsRecipe></PrivateRoute>,
+      //   loader: ({ params }) => fetch(`https://chefs-hunter-server-taniyamim.vercel.app/chefs/${params.id}`),
+      // },
       
     ]
   },
