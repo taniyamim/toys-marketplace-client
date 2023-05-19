@@ -1,15 +1,36 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
-    const toys = useLoaderData();
-    console.log(toys);
+    const allToys = useLoaderData();
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredToys, setFilteredToys] = useState(allToys.slice(0, 20));
+
+    const handleSearch = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+
+        const filtered = allToys.filter((toy) =>
+            toy.toyName.toLowerCase().includes(value.toLowerCase())
+        );
+        setFilteredToys(filtered.slice(0, 20));
+    };
 
     return (
         <div>
+            <div className="mb-4">
+                <input
+                    type="text"
+                    placeholder="Search by toy name"
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    className="w-full p-2 border border-gray-300 rounded"
+                />
+            </div>
+
             <div className="overflow-x-auto">
                 <table className="table w-full">
-                    {/* head */}
+                    {/* table head */}
                     <thead>
                         <tr>
                             <th></th>
@@ -23,18 +44,16 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {/* Generate table rows dynamically */}
-                        {toys.map((toy, index) => (
+                        {filteredToys.map((toy, index) => (
                             <tr key={index} className="hover">
                                 <th>{index + 1}</th>
                                 <td>{toy.seller}</td>
                                 <td>{toy.toyName}</td>
-                                <td>{toy.category.subcategory.subcategoryName}</td>
+                                <td>{toy.subcategory}</td>
                                 <td>{toy.price}</td>
                                 <td>{toy.availableQuantity}</td>
                                 <td>
-                                <Link to={`/toyDetails/${toy._id}`}>
-                                <button className="btn btn-primary">View Details</button>
-                                </Link>
+                                    <button className="btn btn-primary">View Details</button>
                                 </td>
                             </tr>
                         ))}
