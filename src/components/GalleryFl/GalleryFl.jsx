@@ -3,7 +3,7 @@ import React from 'react';
 const GalleryFl = () => {
     return (
         <div>
-            <h1 className='text-center font-bold py-10 text-3xl dark:text-white'>Photo Gallery</h1>
+            <h1 className='text-center font-extrabold py-10 text-3xl dark:text-white'>Photo Gallery</h1>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="grid gap-4">

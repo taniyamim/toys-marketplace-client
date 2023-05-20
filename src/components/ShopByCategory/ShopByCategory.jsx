@@ -20,7 +20,7 @@ const ShopByCategory = () => {
     }
 
     const filteredToys = toys.filter(
-      toy => toy.subCategory.subCategoryName === selectedSubcategory
+      toy => toy.subCategory === selectedSubcategory
     );
 
     return (
@@ -34,7 +34,7 @@ const ShopByCategory = () => {
               <h2 className="card-title">{toy.toyName}</h2>
               <p>Price: {toy.price}</p>
               <p>Rating: {toy.rating}</p>
-              <p>Subcategory: {toy.subCategory.subCategoryName}</p>
+              <p>Subcategory: {toy.subCategory}</p>
               <div className="card-actions">
                 <Link to={`/toyDetails/${toy._id}`}>
                   <button className="btn bg-sky-700 text-white">View Details</button>
@@ -48,11 +48,11 @@ const ShopByCategory = () => {
   };
 
   const handleTabSelect = (index) => {
-    setSelectedSubcategory(['Marvel', 'DC', 'Star Wars'][index]);
+    setSelectedSubcategory(['Marvel', 'DC', 'Star wars'][index]);
   };
 
   return (
-    <div className='bg-sky-950 p-8'>
+    <div className='bg-sky-900 p-8'>
       <h1 className="text-center font-bold py-10 text-3xl dark:text-white">Shop By Category</h1>
       <Tabs onSelect={handleTabSelect}>
         <TabList>
