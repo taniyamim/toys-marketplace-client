@@ -25,8 +25,8 @@ const ToysDetails = () => {
                 </figure>
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{toy.toyName}</h2>
-                    <p>Category: {toy.category.categoryName}</p>
-                    <p>Sub-Category: {toy.category.subcategory.subcategoryName}</p>
+                    {/* <p>Category: {toy.categ.categoryName}</p> */}
+                    <p>Sub-Category: {toy.subCategory.subCategoryName}</p>
                     <p>Available Quantity: {toy.availableQuantity}</p>
                     <h2>Price: {toy.price}</h2>
                     <p>Rating: {toy.rating}</p>

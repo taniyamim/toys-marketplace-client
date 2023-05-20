@@ -47,9 +47,9 @@ const AllToys = () => {
                         {filteredToys.map((toy, index) => (
                             <tr key={index} className="hover">
                                 <th>{index + 1}</th>
-                                <td>{toy.seller}</td>
+                                <td>{toy.sellerName}</td>
                                 <td>{toy.toyName}</td>
-                                <td>{toy.subcategory}</td>
+                                <td>{toy.subCategory.subCategoryName}</td>
                                 <td>{toy.price}</td>
                                 <td>{toy.availableQuantity}</td>
                                 <td>
