@@ -31,7 +31,7 @@ const ToysDetails = () => {
                     <h2>Price: {toy.price}</h2>
                     <p>Rating: {toy.rating}</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn bg-sky-700">Buy Now</button>
                     </div>
                 </div>
             </div>

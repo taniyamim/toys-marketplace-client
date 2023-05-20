@@ -37,7 +37,7 @@ const ShopByCategory = () => {
               <p>Subcategory: {toy.subCategory.subCategoryName}</p>
               <div className="card-actions">
                 <Link to={`/toyDetails/${toy._id}`}>
-                  <button className="btn btn-primary">View Details</button>
+                  <button className="btn bg-sky-700 text-white">View Details</button>
                 </Link>
               </div>
             </div>
@@ -52,7 +52,7 @@ const ShopByCategory = () => {
   };
 
   return (
-    <div>
+    <div className='bg-sky-950 p-8'>
       <h1 className="text-center font-bold py-10 text-3xl dark:text-white">Shop By Category</h1>
       <Tabs onSelect={handleTabSelect}>
         <TabList>

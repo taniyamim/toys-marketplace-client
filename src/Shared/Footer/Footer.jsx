@@ -2,7 +2,7 @@ import logo from '../../assets/logo.png'
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-[#341948] text-base-content">
+            <footer className="footer p-10 bg-sky-950 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
@@ -24,7 +24,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </div>
             </footer>
-            <footer className="footer px-10 py-4 border-t bg-[#341948]  text-base-content border-base-300">
+            <footer className="footer px-10 py-4 border-t bg-sky-950  text-base-content border-base-300">
                 <div className="items-center grid-flow-col">
                     <img className="w-14 h-14" src={logo} alt="" />
                     <p>Toys World Ltd. <br />Providing reliable toys since 1992</p>
