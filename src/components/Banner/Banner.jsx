@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className='h-1/4'>
+        <div className=''>
             <h1 className='text-center font-bold py-10 text-3xl dark:text-white'>Featured Category</h1>
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full">
@@ -25,6 +25,7 @@ const Banner = () => {
                 <a href="#item3" className="btn btn-xs">3</a>
                 <a href="#item4" className="btn btn-xs">4</a>
             </div>
+            
         </div>
     );
 };

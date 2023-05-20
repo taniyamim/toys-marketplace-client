@@ -1,3 +1,4 @@
+import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
 import GalleryFl from "../GalleryFl/GalleryFl";
@@ -16,6 +17,9 @@ const Home = () => {
                 </div>
                 <div className="my-7">
                     <ShopByCategory></ShopByCategory>
+                </div>
+                <div>
+                    <AboutUs></AboutUs>
                 </div>
             </div>
         </div>

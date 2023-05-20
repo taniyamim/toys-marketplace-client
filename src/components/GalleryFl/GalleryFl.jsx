@@ -17,7 +17,7 @@ const GalleryFl = () => {
                         <img className="h-auto max-w-full rounded-lg" src="https://i.pinimg.com/originals/b2/ff/02/b2ff020a299e78c92fe626a0221d3517.jpg" alt=""/>
                     </div>
                 </div>
-                <div class="grid gap-4">
+                <div className="grid gap-4">
                     <div>
                         <img className="h-auto max-w-full rounded-lg" src="https://images-na.ssl-images-amazon.com/images/I/61JkzF2JkML._AC_UL600_SR600,600_.jpg" alt=""/>
                     </div>
