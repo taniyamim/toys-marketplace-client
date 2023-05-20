@@ -1,5 +1,6 @@
 import AboutUs from "../AboutUs/AboutUs";
 import Banner from "../Banner/Banner";
+import FAQ from "../FAQ/FAQ";
 import Gallery from "../Gallery/Gallery";
 import GalleryFl from "../GalleryFl/GalleryFl";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
@@ -20,6 +21,9 @@ const Home = () => {
                 </div>
                 <div>
                     <AboutUs></AboutUs>
+                </div>
+                <div className="my-8">
+                    <FAQ></FAQ>
                 </div>
             </div>
         </div>
