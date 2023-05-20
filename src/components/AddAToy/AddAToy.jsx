@@ -1,45 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AddAToy = () => {
+    const { user } = useContext(AuthContext);
     const handleAddToy = event => {
         event.preventDefault();
 
         const form = event.target;
 
-        const name = form.name.value;
-        const quantity = form.quantity.value;
+        const toyName = form.name.value;
+        const availableQuantity = form.quantity.value;
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
         const subCategory = form.subCategory.value;
         const details = form.details.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const photo = form.photo.value;
+        const picture = form.photo.value;
 
-        const newToy = { name, quantity, sellerName, sellerEmail, subCategory, details, price, rating, photo }
+        const newToy = { toyName, availableQuantity, sellerName, sellerEmail, subCategory, details, price, rating, picture }
 
         console.log(newToy);
 
         // send data to the server
-        // fetch('http://localhost:5000/toy', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newCoffee)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Toy Added Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //     })
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
     }
     return (
         <div className="bg-sky-900 text-white p-24 m-10 rounded-lg">
@@ -79,7 +82,7 @@ const AddAToy = () => {
                             <span className="label-text">Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="sellerEmail" placeholder="Seller Email" className="input input-bordered w-full" />
+                            <input type="email" name="sellerEmail" placeholder="Seller Email" defaultValue={user.email} className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -90,7 +93,7 @@ const AddAToy = () => {
                             <span className="label-text">Sub Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategory" placeholder="Sub Category" className="input input-bordered w-full" />
+                            <input type="text" name="subCategory" placeholder="Must be (Marvel , DC , Star wars)" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
