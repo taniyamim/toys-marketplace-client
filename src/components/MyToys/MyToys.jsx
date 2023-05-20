@@ -33,9 +33,7 @@ const MyToys = () => {
         }
     };
 
-    const handleUpdate = (id) => {
-        // Implement the logic to update the toy with the given toyId
-    };
+   
 
     return (
         <div className="m-5">
@@ -91,8 +89,8 @@ const MyToys = () => {
                                 <td>{toy.rating}</td>
                                 <td>{toy.availableQuantity}</td>
                                 <td>
-                                    <Link to={`/toyDetails/${toy._id}`}>
-                                        <button className="btn bg-sky-700 text-white">
+                                    <Link to={`/updateToy/${toy._id}`}>
+                                        <button className="btn bg-sky-700 btn-sm text-white">
                                             Update
                                         </button>
                                     </Link>
@@ -100,7 +98,7 @@ const MyToys = () => {
                                 <td>
                                     <button
                                         onClick={() => handleDelete(toy._id)}
-                                        className="btn btn-circle bg-red-700"
+                                        className="btn btn-sm btn-circle bg-red-700"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
