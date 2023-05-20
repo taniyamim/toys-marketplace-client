@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const myToys = useLoaderData();
@@ -22,7 +23,11 @@ const MyToys = () => {
                 .then((data) => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('Deleted successfully');
+                        Swal.fire(
+                            'Deleted!',
+                            'Your Toy has been deleted.',
+                            'success'
+                        )
                         const remaining = toys.filter((toy) => toy._id !== id);
                         setToys(remaining);
                     }
