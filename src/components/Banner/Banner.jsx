@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className=''>
+        <div className='' data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
             <h1 className='text-center font-bold py-10 text-3xl dark:text-white'>Featured Category</h1>
             <div className="carousel w-full">
                 <div id="item1" className="carousel-item w-full">
