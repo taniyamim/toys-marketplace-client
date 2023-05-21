@@ -8,7 +8,7 @@ const ShopByCategory = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState('Marvel');
 
   useEffect(() => {
-    fetch('http://localhost:5000/toys')
+    fetch('https://toys-marketplace-server-taniyamim.vercel.app/toys')
       .then(res => res.json())
       .then(data => setToys(data));
   }, []);

@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch('http://localhost:5000/toys')
+        loader: () => fetch('https://toys-marketplace-server-taniyamim.vercel.app/toys')
       },
       {
         path: "/addAToy",
@@ -53,17 +53,17 @@ const router = createBrowserRouter([
       {
         path: "/toyDetails/:id",
         element: <PrivateRoute><ToysDetails></ToysDetails>,</PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`),
+        loader: ({ params }) => fetch(`https://toys-marketplace-server-taniyamim.vercel.app/toys/${params.id}`),
       },
       {
         path: "/updateToy/:id",
         element: <PrivateRoute> <UpdateToy></UpdateToy></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/toys/${params.id}`),
+        loader: ({ params }) => fetch(`https://toys-marketplace-server-taniyamim.vercel.app/toys/${params.id}`),
       },
       {
         path: "/myToys",
         element: <PrivateRoute> <MyToys></MyToys></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/toys')
+        loader: () => fetch('https://toys-marketplace-server-taniyamim.vercel.app/toys')
       },
       
     ]
